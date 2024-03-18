@@ -1,6 +1,6 @@
 ---
 - name: Update Debian OS
-  hosts: your_debian_host
+  hosts: all
   become: yes
 
   tasks:
