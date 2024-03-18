@@ -1,0 +1,14 @@
+---
+- name: Install WireGuard
+  hosts: all
+  become: true
+  tasks:
+    - name: Add WireGuard repository
+      apt_repository:
+        repo: ppa:wireguard/wireguard
+        state: present
+
+    - name: Install WireGuard
+      apt:
+        name: wireguard
+        state: present
