@@ -3,9 +3,19 @@
   hosts: all
   become: true
   tasks:
+    - name: Download WireGuard repository key
+      get_url:
+        url: https://packages.wireguard.com/keys/wireguard.key
+        dest: /tmp/wireguard.key
+
+    - name: Add WireGuard repository key
+      apt_key:
+        keyring: /etc/apt/trusted.gpg.d/wireguard.gpg
+        src: /tmp/wireguard.key
+
     - name: Add WireGuard repository
       apt_repository:
-        repo: ppa:wireguard/wireguard
+        repo: deb https://packages.wireguard.com/debian stable main
         state: present
 
     - name: Install WireGuard
