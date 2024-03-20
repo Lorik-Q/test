@@ -1,6 +1,6 @@
 ---
 - name: Install htop on Debian
-  hosts: your_debian_host
+  hosts: all
   become: yes
 
   tasks:
