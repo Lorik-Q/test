@@ -1,5 +1,11 @@
- name: Create a directory if it does not exist
-  ansible.builtin.file:
-    path: /etc/some_directory
-    state: directory
-    mode: '0755'
+---
+- name: Update Debian OS
+  hosts: all
+  become: yes
+
+  tasks:
+    name: Create a directory if it does not exist
+    ansible.builtin.file:
+      path: "{{ NAME }}"
+      state: directory
+      mode: '0755'
