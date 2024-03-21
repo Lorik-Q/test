@@ -1,5 +1,5 @@
 ---
-- name: Update Debian OS
+- name: make dir
   hosts: all
   become: yes
 
